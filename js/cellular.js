@@ -41,8 +41,8 @@ function surroundingCount(grid, xPos, yPos) {
 				if(!(x == xPos && y == yPos) ) { //don't count current tile
 					count += grid[x][y]; // add 1 if true, else 0
 				}
-			} else { // outside, more walls on sides
-				count++;
+			} else { // edge cases, experiment with 0, 0.5, and 1
+				count+=1; // water on edge of map
 			}
 		}
 	}

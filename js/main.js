@@ -50,10 +50,13 @@ function drawGrid(grid) {
 	}
 }
 
-// https://justingolden.me/tailwind-colors/
-const colors = '#0C4A6E #075985 #0369A1 #0EA5E9 #7DD3FC #FDE68A #86EFAC #22C55E #15803D'.split(' ').reverse();
 function getColor(grid, x, y) {
-	let idx = surroundingCount(grid, x, y) >> 1; // divide by 2
-	idx += (grid[x][y] == 0 ? 0 : 4);
-	return colors[idx];
+	// https://justingolden.me/tailwind-colors/
+	// const colors = '#0C4A6E #075985 #0369A1 #0EA5E9 #7DD3FC #FDE68A #86EFAC #22C55E #15803D'.split(' ').reverse();
+	// let idx = surroundingCount(grid, x, y) >> 1; // divide by 2
+	// idx += (grid[x][y] == 0 ? 0 : 4);
+	// return colors[idx];
+
+	let count = surroundingCount(grid, x, y);
+	return grid[x][y] == 1 ? `hsl(210, 80%, ${60-count*4}%)` : `hsl(140, 80%, ${20+count*2}%)`;
 }

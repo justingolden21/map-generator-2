@@ -21,9 +21,10 @@ function generate() {
 	let height = validate('height',50);
 	let percent = validate('percent',50);
 	let smoothing = validate('smoothing',10);
+	let size = validate('size',5);
 
 	let grid = createCellularMap(width, height, percent, smoothing);
-	drawGrid(grid);
+	drawGrid(grid, size);
 }
 
 function validate(name, defaultVal) {
@@ -37,9 +38,8 @@ function check(num, min, max, defaultVal) {
 	return isNaN(num) ? defaultVal : num;
 }
 
-function drawGrid(grid) {
+function drawGrid(grid, size) {
 	const width = grid.length, height = grid[0].length;
-	const size = 5;
 	canvas.width = width*size;
 	canvas.height = height*size;
 	for(let x=0; x<width; x++) {

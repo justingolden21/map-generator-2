@@ -1,0 +1,7 @@
+
+maybe:
+url params, share link, reset settings function
+download img
+generate multiple (view all in a row, dynamically attach canvases to DOM)
+clean up UI and compress code
+add sand, mountains, other colors

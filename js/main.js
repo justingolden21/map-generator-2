@@ -44,8 +44,12 @@ function drawGrid(grid) {
 	canvas.height = height*size;
 	for(let x=0; x<width; x++) {
 		for(let y=0; y<height; y++) {
-			ctx.fillStyle = grid[x][y] == 0 ? '#34991f' : '#2948cc';
+			ctx.fillStyle = getColor(grid, x, y);
 			ctx.fillRect(x*size, y*size, size, size);
 		}
 	}
+}
+
+function getColor(grid, x, y) {
+	return grid[x][y] == 0 ? '#34991f' : '#2948cc';
 }

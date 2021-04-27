@@ -5,8 +5,8 @@ window.onload = ( ()=> {
 	ctx = canvas.getContext('2d');
 
 	// listeners
-	u('#generate').on('click',generate);
-	u('input').on('change',generate);
+	document.getElementById('generate').onclick = generate;
+	Array.from(document.getElementsByTagName('input')).forEach(x=>x.onchange = generate);
 	generate();
 });
 
@@ -38,7 +38,7 @@ function generate() {
 }
 
 function validate(name, defaultVal) {
-	let elm = u('#'+name).first();
+	let elm = document.getElementById(name);
 	let val = check(elm.value, elm.min, elm.max, defaultVal);
 	elm.value = val;
 	return val;
